@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
 
 
         if (token) {
-            jwt.verify(token, secret, (err, decodedToken) => {
+            jwt.verify(token, secret.JWT_SECRET, (err, decodedToken) => {
               if (err) {
                 next({ apiCode: 401, apiMessage: 'invalid or missing credentials' });
               } else {
